@@ -60,13 +60,25 @@ export default interface LoaderOptions {
   /**
    * If set to true, string enums and unions will be converted to docgen enum format.
    * Useful if you use Storybook and want to generate knobs automatically using [addon-smart-knobs](https://github.com/storybookjs/addon-smart-knobs).
-   * @see https://github.com/styleguidist/react-docgen-typescript#parseroptions
+   * @see https://github.com/styleguidist/react-docgen-typescript#options
    * */
   shouldExtractLiteralValuesFromEnum?: boolean;
 
   /**
+   * If set to true, every unions will be converted to docgen enum format.
+   * @see https://github.com/styleguidist/react-docgen-typescript#options
+   */
+  shouldExtractValuesFromUnion?: boolean;
+
+  /**
+   * If set to true, types that are optional will not display " | undefined" in the type.
+   * @see https://github.com/styleguidist/react-docgen-typescript#options
+   */
+  shouldRemoveUndefinedFromOptional?: boolean;
+
+  /**
    * If set to true, defaultValue to props will be string.
-   * @see https://github.com/styleguidist/react-docgen-typescript#parseroptions
+   * @see https://github.com/styleguidist/react-docgen-typescript#options
    * */
   savePropValueAsString?: boolean;
 
