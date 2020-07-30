@@ -65,6 +65,12 @@ export default interface LoaderOptions {
   shouldExtractLiteralValuesFromEnum?: boolean;
 
   /**
+   * If set to true, every unions will be converted to docgen enum format.
+   * @see https://github.com/styleguidist/react-docgen-typescript#parseroptions
+   * */
+  shouldExtractValuesFromUnion?: boolean;
+
+  /**
    * If set to true, defaultValue to props will be string.
    * @see https://github.com/styleguidist/react-docgen-typescript#parseroptions
    * */

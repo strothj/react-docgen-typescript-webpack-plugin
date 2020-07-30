@@ -61,6 +61,10 @@ const schema = {
       type: "boolean",
     },
 
+    shouldExtractValuesFromUnion: {
+      type: "boolean",
+    },
+
     savePropValueAsString: {
       type: "boolean",
     },

@@ -81,6 +81,7 @@ function processResource(
         : options.propFilter,
     shouldExtractLiteralValuesFromEnum:
       options.shouldExtractLiteralValuesFromEnum,
+    shouldExtractValuesFromUnion: options.shouldExtractValuesFromUnion,
     savePropValueAsString: options.savePropValueAsString,
   };
 

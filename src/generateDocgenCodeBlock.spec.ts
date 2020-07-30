@@ -59,3 +59,23 @@ it("generates value info for enums", () => {
     ),
   ).toMatchSnapshot();
 });
+
+it("generates value info for unions", () => {
+  expect(
+    generateDocgenCodeBlock(
+      getGeneratorOptions({ shouldExtractValuesFromUnion: true })(
+        "DefaultPropValue.tsx",
+      ),
+    ),
+  ).toMatchSnapshot();
+});
+
+it("preserves type name for unions", () => {
+  expect(
+    generateDocgenCodeBlock(
+      getGeneratorOptions({ shouldExtractValuesFromUnion: false })(
+        "DefaultPropValue.tsx",
+      ),
+    ),
+  ).toMatchSnapshot();
+});

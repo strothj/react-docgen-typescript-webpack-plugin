@@ -110,7 +110,10 @@ var React = __importStar(__webpack_require__(/*! react */ \\"react\\"));
 /**
  * Component with a prop with a default value.
  */
-exports.DefaultPropValueComponent = function (props) { return (React.createElement(\\"button\\", { disabled: props.disabled, style: { backgroundColor: props.color } },
+exports.DefaultPropValueComponent = function (props) { return (React.createElement(\\"button\\", { disabled: props.disabled, style: {
+        backgroundColor: props.color,
+        fontWeight: props.weight || \\"normal\\",
+    } },
     props.counter,
     props.children)); };
 exports.DefaultPropValueComponent.defaultProps = {
@@ -121,7 +124,7 @@ try {
     // @ts-ignore
     exports.DefaultPropValueComponent.displayName = \\"DefaultPropValueComponent\\";
     // @ts-ignore
-    exports.DefaultPropValueComponent.__docgenInfo = { \\"description\\": \\"Component with a prop with a default value.\\", \\"displayName\\": \\"DefaultPropValueComponent\\", \\"props\\": { \\"color\\": { \\"defaultValue\\": { value: \\"blue\\" }, \\"description\\": \\"Button color.\\", \\"name\\": \\"color\\", \\"required\\": true, \\"type\\": { \\"name\\": \\"\\\\\\"blue\\\\\\" | \\\\\\"green\\\\\\"\\" } }, \\"counter\\": { \\"defaultValue\\": { value: 123 }, \\"description\\": \\"Button counter.\\", \\"name\\": \\"counter\\", \\"required\\": false, \\"type\\": { \\"name\\": \\"number\\" } }, \\"disabled\\": { \\"defaultValue\\": { value: false }, \\"description\\": \\"Button disabled.\\", \\"name\\": \\"disabled\\", \\"required\\": false, \\"type\\": { \\"name\\": \\"boolean\\" } } } };
+    exports.DefaultPropValueComponent.__docgenInfo = { \\"description\\": \\"Component with a prop with a default value.\\", \\"displayName\\": \\"DefaultPropValueComponent\\", \\"props\\": { \\"color\\": { \\"defaultValue\\": { value: \\"blue\\" }, \\"description\\": \\"Button color.\\", \\"name\\": \\"color\\", \\"required\\": true, \\"type\\": { \\"name\\": \\"\\\\\\"blue\\\\\\" | \\\\\\"green\\\\\\"\\" } }, \\"weight\\": { \\"defaultValue\\": { value: \\"normal\\" }, \\"description\\": \\"The font weight to use on text\\", \\"name\\": \\"weight\\", \\"required\\": false, \\"type\\": { \\"name\\": \\"FontWeight\\" } }, \\"counter\\": { \\"defaultValue\\": { value: 123 }, \\"description\\": \\"Button counter.\\", \\"name\\": \\"counter\\", \\"required\\": false, \\"type\\": { \\"name\\": \\"number\\" } }, \\"disabled\\": { \\"defaultValue\\": { value: false }, \\"description\\": \\"Button disabled.\\", \\"name\\": \\"disabled\\", \\"required\\": false, \\"type\\": { \\"name\\": \\"boolean\\" } } } };
     // @ts-ignore
     if (typeof STORYBOOK_REACT_CLASSES !== \\"undefined\\")
         // @ts-ignore
