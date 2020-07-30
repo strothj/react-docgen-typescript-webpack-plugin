@@ -1,5 +1,7 @@
 import * as React from "react";
 
+type FontWeight = "normal" | "bold";
+
 interface DefaultPropValueComponentProps {
   /**
    * Button color.
@@ -7,6 +9,13 @@ interface DefaultPropValueComponentProps {
    * @default blue
    **/
   color: "blue" | "green";
+
+  /**
+   * The font weight to use on text
+   *
+   * @default normal
+   */
+  weight?: FontWeight;
 
   /**
    * Button counter.
@@ -25,7 +34,13 @@ interface DefaultPropValueComponentProps {
 export const DefaultPropValueComponent: React.SFC<
   DefaultPropValueComponentProps
 > = props => (
-  <button disabled={props.disabled} style={{ backgroundColor: props.color }}>
+  <button
+    disabled={props.disabled}
+    style={{
+      backgroundColor: props.color,
+      fontWeight: props.weight || "normal",
+    }}
+  >
     {props.counter}
     {props.children}
   </button>

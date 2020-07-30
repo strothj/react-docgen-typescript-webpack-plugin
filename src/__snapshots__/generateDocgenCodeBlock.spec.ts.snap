@@ -30,6 +30,8 @@ catch (__react_docgen_typescript_loader_error) { }"
 exports[`component fixture DefaultPropValue.tsx has code block generated 1`] = `
 "import * as React from \\"react\\";
 
+type FontWeight = \\"normal\\" | \\"bold\\";
+
 interface DefaultPropValueComponentProps {
   /**
    * Button color.
@@ -37,6 +39,13 @@ interface DefaultPropValueComponentProps {
    * @default blue
    **/
   color: \\"blue\\" | \\"green\\";
+
+  /**
+   * The font weight to use on text
+   *
+   * @default normal
+   */
+  weight?: FontWeight;
 
   /**
    * Button counter.
@@ -55,7 +64,13 @@ interface DefaultPropValueComponentProps {
 export const DefaultPropValueComponent: React.SFC<
   DefaultPropValueComponentProps
 > = props => (
-  <button disabled={props.disabled} style={{ backgroundColor: props.color }}>
+  <button
+    disabled={props.disabled}
+    style={{
+      backgroundColor: props.color,
+      fontWeight: props.weight || \\"normal\\",
+    }}
+  >
     {props.counter}
     {props.children}
   </button>
@@ -69,7 +84,7 @@ try {
     // @ts-ignore
     DefaultPropValueComponent.displayName = \\"DefaultPropValueComponent\\";
     // @ts-ignore
-    DefaultPropValueComponent.__docgenInfo = { \\"description\\": \\"Component with a prop with a default value.\\", \\"displayName\\": \\"DefaultPropValueComponent\\", \\"props\\": { \\"color\\": { \\"defaultValue\\": { value: \\"blue\\" }, \\"description\\": \\"Button color.\\", \\"name\\": \\"color\\", \\"required\\": true, \\"type\\": { \\"name\\": \\"\\\\\\"blue\\\\\\" | \\\\\\"green\\\\\\"\\" } }, \\"counter\\": { \\"defaultValue\\": { value: 123 }, \\"description\\": \\"Button counter.\\", \\"name\\": \\"counter\\", \\"required\\": false, \\"type\\": { \\"name\\": \\"number\\" } }, \\"disabled\\": { \\"defaultValue\\": { value: false }, \\"description\\": \\"Button disabled.\\", \\"name\\": \\"disabled\\", \\"required\\": false, \\"type\\": { \\"name\\": \\"boolean\\" } } } };
+    DefaultPropValueComponent.__docgenInfo = { \\"description\\": \\"Component with a prop with a default value.\\", \\"displayName\\": \\"DefaultPropValueComponent\\", \\"props\\": { \\"color\\": { \\"defaultValue\\": { value: \\"blue\\" }, \\"description\\": \\"Button color.\\", \\"name\\": \\"color\\", \\"required\\": true, \\"type\\": { \\"name\\": \\"\\\\\\"blue\\\\\\" | \\\\\\"green\\\\\\"\\" } }, \\"weight\\": { \\"defaultValue\\": { value: \\"normal\\" }, \\"description\\": \\"The font weight to use on text\\", \\"name\\": \\"weight\\", \\"required\\": false, \\"type\\": { \\"name\\": \\"FontWeight\\" } }, \\"counter\\": { \\"defaultValue\\": { value: 123 }, \\"description\\": \\"Button counter.\\", \\"name\\": \\"counter\\", \\"required\\": false, \\"type\\": { \\"name\\": \\"number\\" } }, \\"disabled\\": { \\"defaultValue\\": { value: false }, \\"description\\": \\"Button disabled.\\", \\"name\\": \\"disabled\\", \\"required\\": false, \\"type\\": { \\"name\\": \\"boolean\\" } } } };
 }
 catch (__react_docgen_typescript_loader_error) { }"
 `;
@@ -231,6 +246,8 @@ catch (__react_docgen_typescript_loader_error) { }"
 exports[`generates value info for enums 1`] = `
 "import * as React from \\"react\\";
 
+type FontWeight = \\"normal\\" | \\"bold\\";
+
 interface DefaultPropValueComponentProps {
   /**
    * Button color.
@@ -238,6 +255,13 @@ interface DefaultPropValueComponentProps {
    * @default blue
    **/
   color: \\"blue\\" | \\"green\\";
+
+  /**
+   * The font weight to use on text
+   *
+   * @default normal
+   */
+  weight?: FontWeight;
 
   /**
    * Button counter.
@@ -256,7 +280,13 @@ interface DefaultPropValueComponentProps {
 export const DefaultPropValueComponent: React.SFC<
   DefaultPropValueComponentProps
 > = props => (
-  <button disabled={props.disabled} style={{ backgroundColor: props.color }}>
+  <button
+    disabled={props.disabled}
+    style={{
+      backgroundColor: props.color,
+      fontWeight: props.weight || \\"normal\\",
+    }}
+  >
     {props.counter}
     {props.children}
   </button>
@@ -270,7 +300,131 @@ try {
     // @ts-ignore
     DefaultPropValueComponent.displayName = \\"DefaultPropValueComponent\\";
     // @ts-ignore
-    DefaultPropValueComponent.__docgenInfo = { \\"description\\": \\"Component with a prop with a default value.\\", \\"displayName\\": \\"DefaultPropValueComponent\\", \\"props\\": { \\"color\\": { \\"defaultValue\\": { value: \\"blue\\" }, \\"description\\": \\"Button color.\\", \\"name\\": \\"color\\", \\"required\\": true, \\"type\\": { \\"name\\": \\"enum\\", \\"value\\": [{ \\"value\\": \\"\\\\\\"blue\\\\\\"\\" }, { \\"value\\": \\"\\\\\\"green\\\\\\"\\" }] } }, \\"counter\\": { \\"defaultValue\\": { value: 123 }, \\"description\\": \\"Button counter.\\", \\"name\\": \\"counter\\", \\"required\\": false, \\"type\\": { \\"name\\": \\"number\\" } }, \\"disabled\\": { \\"defaultValue\\": { value: false }, \\"description\\": \\"Button disabled.\\", \\"name\\": \\"disabled\\", \\"required\\": false, \\"type\\": { \\"name\\": \\"boolean\\" } } } };
+    DefaultPropValueComponent.__docgenInfo = { \\"description\\": \\"Component with a prop with a default value.\\", \\"displayName\\": \\"DefaultPropValueComponent\\", \\"props\\": { \\"color\\": { \\"defaultValue\\": { value: \\"blue\\" }, \\"description\\": \\"Button color.\\", \\"name\\": \\"color\\", \\"required\\": true, \\"type\\": { \\"name\\": \\"enum\\", \\"value\\": [{ \\"value\\": \\"\\\\\\"blue\\\\\\"\\" }, { \\"value\\": \\"\\\\\\"green\\\\\\"\\" }] } }, \\"weight\\": { \\"defaultValue\\": { value: \\"normal\\" }, \\"description\\": \\"The font weight to use on text\\", \\"name\\": \\"weight\\", \\"required\\": false, \\"type\\": { \\"name\\": \\"enum\\", \\"value\\": [{ \\"value\\": \\"\\\\\\"normal\\\\\\"\\" }, { \\"value\\": \\"\\\\\\"bold\\\\\\"\\" }] } }, \\"counter\\": { \\"defaultValue\\": { value: 123 }, \\"description\\": \\"Button counter.\\", \\"name\\": \\"counter\\", \\"required\\": false, \\"type\\": { \\"name\\": \\"number\\" } }, \\"disabled\\": { \\"defaultValue\\": { value: false }, \\"description\\": \\"Button disabled.\\", \\"name\\": \\"disabled\\", \\"required\\": false, \\"type\\": { \\"name\\": \\"boolean\\" } } } };
+}
+catch (__react_docgen_typescript_loader_error) { }"
+`;
+
+exports[`generates value info for unions 1`] = `
+"import * as React from \\"react\\";
+
+type FontWeight = \\"normal\\" | \\"bold\\";
+
+interface DefaultPropValueComponentProps {
+  /**
+   * Button color.
+   *
+   * @default blue
+   **/
+  color: \\"blue\\" | \\"green\\";
+
+  /**
+   * The font weight to use on text
+   *
+   * @default normal
+   */
+  weight?: FontWeight;
+
+  /**
+   * Button counter.
+   */
+  counter: number;
+
+  /**
+   * Button disabled.
+   */
+  disabled: boolean;
+}
+
+/**
+ * Component with a prop with a default value.
+ */
+export const DefaultPropValueComponent: React.SFC<
+  DefaultPropValueComponentProps
+> = props => (
+  <button
+    disabled={props.disabled}
+    style={{
+      backgroundColor: props.color,
+      fontWeight: props.weight || \\"normal\\",
+    }}
+  >
+    {props.counter}
+    {props.children}
+  </button>
+);
+
+DefaultPropValueComponent.defaultProps = {
+  counter: 123,
+  disabled: false,
+};
+try {
+    // @ts-ignore
+    DefaultPropValueComponent.displayName = \\"DefaultPropValueComponent\\";
+    // @ts-ignore
+    DefaultPropValueComponent.__docgenInfo = { \\"description\\": \\"Component with a prop with a default value.\\", \\"displayName\\": \\"DefaultPropValueComponent\\", \\"props\\": { \\"color\\": { \\"defaultValue\\": { value: \\"blue\\" }, \\"description\\": \\"Button color.\\", \\"name\\": \\"color\\", \\"required\\": true, \\"type\\": { \\"name\\": \\"enum\\", \\"value\\": [{ \\"value\\": \\"\\\\\\"blue\\\\\\"\\" }, { \\"value\\": \\"\\\\\\"green\\\\\\"\\" }] } }, \\"weight\\": { \\"defaultValue\\": { value: \\"normal\\" }, \\"description\\": \\"The font weight to use on text\\", \\"name\\": \\"weight\\", \\"required\\": false, \\"type\\": { \\"name\\": \\"enum\\", \\"value\\": [{ \\"value\\": \\"\\\\\\"normal\\\\\\"\\" }, { \\"value\\": \\"\\\\\\"bold\\\\\\"\\" }] } }, \\"counter\\": { \\"defaultValue\\": { value: 123 }, \\"description\\": \\"Button counter.\\", \\"name\\": \\"counter\\", \\"required\\": false, \\"type\\": { \\"name\\": \\"number\\" } }, \\"disabled\\": { \\"defaultValue\\": { value: false }, \\"description\\": \\"Button disabled.\\", \\"name\\": \\"disabled\\", \\"required\\": false, \\"type\\": { \\"name\\": \\"enum\\", \\"value\\": [{ \\"value\\": \\"false\\" }, { \\"value\\": \\"true\\" }] } } } };
+}
+catch (__react_docgen_typescript_loader_error) { }"
+`;
+
+exports[`preserves type name for unions 1`] = `
+"import * as React from \\"react\\";
+
+type FontWeight = \\"normal\\" | \\"bold\\";
+
+interface DefaultPropValueComponentProps {
+  /**
+   * Button color.
+   *
+   * @default blue
+   **/
+  color: \\"blue\\" | \\"green\\";
+
+  /**
+   * The font weight to use on text
+   *
+   * @default normal
+   */
+  weight?: FontWeight;
+
+  /**
+   * Button counter.
+   */
+  counter: number;
+
+  /**
+   * Button disabled.
+   */
+  disabled: boolean;
+}
+
+/**
+ * Component with a prop with a default value.
+ */
+export const DefaultPropValueComponent: React.SFC<
+  DefaultPropValueComponentProps
+> = props => (
+  <button
+    disabled={props.disabled}
+    style={{
+      backgroundColor: props.color,
+      fontWeight: props.weight || \\"normal\\",
+    }}
+  >
+    {props.counter}
+    {props.children}
+  </button>
+);
+
+DefaultPropValueComponent.defaultProps = {
+  counter: 123,
+  disabled: false,
+};
+try {
+    // @ts-ignore
+    DefaultPropValueComponent.displayName = \\"DefaultPropValueComponent\\";
+    // @ts-ignore
+    DefaultPropValueComponent.__docgenInfo = { \\"description\\": \\"Component with a prop with a default value.\\", \\"displayName\\": \\"DefaultPropValueComponent\\", \\"props\\": { \\"color\\": { \\"defaultValue\\": { value: \\"blue\\" }, \\"description\\": \\"Button color.\\", \\"name\\": \\"color\\", \\"required\\": true, \\"type\\": { \\"name\\": \\"\\\\\\"blue\\\\\\" | \\\\\\"green\\\\\\"\\" } }, \\"weight\\": { \\"defaultValue\\": { value: \\"normal\\" }, \\"description\\": \\"The font weight to use on text\\", \\"name\\": \\"weight\\", \\"required\\": false, \\"type\\": { \\"name\\": \\"FontWeight\\" } }, \\"counter\\": { \\"defaultValue\\": { value: 123 }, \\"description\\": \\"Button counter.\\", \\"name\\": \\"counter\\", \\"required\\": false, \\"type\\": { \\"name\\": \\"number\\" } }, \\"disabled\\": { \\"defaultValue\\": { value: false }, \\"description\\": \\"Button disabled.\\", \\"name\\": \\"disabled\\", \\"required\\": false, \\"type\\": { \\"name\\": \\"boolean\\" } } } };
 }
 catch (__react_docgen_typescript_loader_error) { }"
 `;
