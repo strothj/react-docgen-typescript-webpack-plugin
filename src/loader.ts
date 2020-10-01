@@ -25,7 +25,7 @@ export interface TSFile {
 let languageService: ts.LanguageService | null = null;
 const files: Map<string, TSFile> = new Map<string, TSFile>();
 
-export default function loader(
+export default async function loader(
   this: webpack.loader.LoaderContext,
   source: string,
 ) {
@@ -36,7 +36,7 @@ export default function loader(
   const callback = this.async();
 
   try {
-    const newSource = processResource(this, source);
+    const newSource = await processResource(this, source);
 
     if (!callback) return newSource;
     callback(null, newSource);
@@ -50,10 +50,10 @@ export default function loader(
   }
 }
 
-function processResource(
+async function processResource(
   context: webpack.loader.LoaderContext,
   source: string,
-): string {
+): Promise<string> {
   // Mark the loader as being cacheable since the result should be
   // deterministic.
   context.cacheable(true);
@@ -102,7 +102,7 @@ function processResource(
     compilerOptions = tsConfigFile.options;
 
     const filesToLoad = tsConfigFile.fileNames;
-    loadFiles(filesToLoad);
+    await loadFiles(filesToLoad);
   } else if (options.compilerOptions) {
     parser = withCompilerOptions(options.compilerOptions, parserOptions);
     compilerOptions = options.compilerOptions;
@@ -113,7 +113,7 @@ function processResource(
     tsConfigFile = getDefaultTSConfigFile(basePath);
 
     const filesToLoad = tsConfigFile.fileNames;
-    loadFiles(filesToLoad);
+    await loadFiles(filesToLoad);
   }
 
   const componentDocs = parser.parseWithProgramProvider(
@@ -168,24 +168,35 @@ function getDefaultTSConfigFile(basePath: string): ts.ParsedCommandLine {
   return ts.parseJsonConfigFileContent({}, ts.sys, basePath, {});
 }
 
-function loadFiles(filesToLoad: string[]): void {
-  filesToLoad.forEach(filePath => {
+function loadFiles(filesToLoad: string[]): Promise<void[]> {
+  return Promise.all(filesToLoad.map(filePath => {
     const normalizedFilePath = path.normalize(filePath);
-    const file = files.get(normalizedFilePath);
-    const text = fs.readFileSync(normalizedFilePath, "utf-8");
 
-    if (!file) {
-      files.set(normalizedFilePath, {
-        text,
-        version: 0,
+    return new Promise<void>((resolve) => {
+      fs.readFile(normalizedFilePath, "utf-8", (err, text) => {
+        if (err) {
+          resolve()
+          return
+        }
+
+        const file = files.get(normalizedFilePath);
+
+        if (!file) {
+          files.set(normalizedFilePath, {
+            text,
+            version: 0,
+          });
+        } else if (file.text !== text) {
+          files.set(normalizedFilePath, {
+            text,
+            version: file.version + 1
+          })
+        }
+
+        resolve()
       });
-    } else if (file.text !== text) {
-      files.set(normalizedFilePath, {
-        text,
-        version: file.version + 1,
-      });
-    }
-  });
+    })
+  }));
 }
 
 function createServiceHost(
@@ -201,13 +212,13 @@ function createServiceHost(
       return (file && file.version.toString()) || "";
     },
     getScriptSnapshot: fileName => {
-      if (!fs.existsSync(fileName)) {
-        return undefined;
-      }
-
       let file = files.get(fileName);
 
       if (file === undefined) {
+        if (!fs.existsSync(fileName)) {
+          return undefined;
+        }
+
         const text = fs.readFileSync(fileName).toString();
 
         file = { version: 0, text };
